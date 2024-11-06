@@ -134,7 +134,7 @@ class Round{
 				s.pos[0] += s.vel[0];
 				s.pos[1] += s.vel[1];
 				s.vel[1] += 1; // gravity
-				if(!AABBCollision([...s.pos,...s.wh], [0,0,windowW,windowH])){
+				if(s.pos[1] > windowH && !AABBCollision([...s.pos,...s.wh], [0,0,windowW,windowH])){
 					rm.push(s);
 				}
 			}
@@ -174,6 +174,10 @@ class Round{
 			}
 			this.lex.drawImg(...this.lexRect, 1);
 			this.lexRect[1] = lerp(this.lexRect[1], this.lexRectFinalY, 0.1)
+			if(this.toggle){
+				this.toggle = false;
+				sfx.woosh.play();
+			}
 		}
 		showText(this.prompt, this.textBubbleRect[0]+Camera.position[0], this.textBubbleRect[1]+Camera.position[1], this.textSize, "black")
 
