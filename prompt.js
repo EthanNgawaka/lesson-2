@@ -220,7 +220,7 @@ class Round{
 	}
 }
 
-prompts = {
+prompts ={
     "You’ll never pass that test.": [
         "I can study and improve one step at a time.",
         "It’s too hard; I’ll just give up now.",
@@ -229,46 +229,147 @@ prompts = {
     "You’ll never finish your homework.": [
         "I can take it one question at a time.",
         "There’s too much to do; I won’t even start.",
-        "I’ll just skip it."
+        "It’s easier to copy from someone else."
     ],
-    "You’ll never make any friends.": [
-        "I just need to be friendly and kind.",
-        "Nobody likes me.",
+    "You’ll never make new friends.": [
+        "If I stay kind and friendly, I’ll meet new people.",
+        "Nobody will like me.",
         "It’s not worth trying."
     ],
     "You’re bad at sports.": [
-        "I’ll improve with practice.",
-        "I’ll always be bad at it.",
-        "There’s no point in trying."
+        "I can get better with practice.",
+        "I’ll never improve.",
+        "I just don’t have the talent."
     ],
-    "You’ll never be able to draw well.": [
-        "I can keep practicing to get better.",
+    "You’ll never learn to draw.": [
+        "If I keep practicing, I’ll get better over time.",
         "My drawings will always be bad.",
-        "Why even bother?"
+        "I should just give up."
     ],
-    "There’s no point in trying.": [
-        "Trying my best is what matters.",
-        "I’ll never succeed.",
-        "Only winners matter."
+    "You can’t solve this math problem.": [
+        "I can try different ways to understand it.",
+        "I’ll never figure it out.",
+        "I’m just not good at math."
     ],
-    "You’ll never remember your lines for the play.": [
-        "I can practice a little every day.",
-        "I’ll mess it up anyway.",
-        "It’s too much to remember."
+    "You’ll never learn to ride a bike.": [
+        "I can try again until I get it right.",
+        "I’ll just fall every time.",
+        "Some people are born good at biking, not me."
     ],
-    "You’re always messing things up.": [
-        "Mistakes are part of learning.",
-        "I’ll never get it right.",
-        "I ruin everything."
+    "You’ll always make mistakes.": [
+        "Mistakes help me learn and grow.",
+        "I always mess things up.",
+        "There’s no point in trying if I’ll fail."
     ],
-    "You’re not smart enough to solve this.": [
-        "I can learn if I try hard.",
-        "This is too difficult for me.",
-        "I’m just not smart."
+    "You’ll never be good at playing an instrument.": [
+        "With regular practice, I’ll improve.",
+        "I’ll never sound good.",
+        "It’s pointless to keep practicing."
     ],
-    "You can’t learn a new skill.": [
-        "Every skill takes practice.",
-        "Some people are just born good at it.",
-        "I’ll never be able to do it."
+    "You’ll never complete this project on time.": [
+        "I’ll do it one step at a time and finish it.",
+        "I might as well not even try.",
+        "It’s too overwhelming to start."
+    ],
+    "You’ll never be good at reading.": [
+        "I can improve by reading a little every day.",
+        "I’ll always struggle with reading.",
+        "Reading is too hard for me."
+    ],
+    "You’ll never win this game.": [
+        "If I keep trying, I’ll get better.",
+        "I should give up before I lose.",
+        "Winning isn’t for me."
+    ],
+    "You’ll never be good at public speaking.": [
+        "The more I practice, the more comfortable I’ll get.",
+        "I’ll always get nervous.",
+        "I’ll mess up every time."
+    ],
+    "You can’t keep up with schoolwork.": [
+        "I’ll catch up step by step.",
+        "I’ll never be able to manage it.",
+        "It’s easier to skip assignments."
+    ],
+    "You’ll never be good at teamwork.": [
+        "I can learn to work well with others.",
+        "I just can’t work with people.",
+        "I’m better off doing things alone."
+    ],
+    "You’ll never improve your grades.": [
+        "I can study and ask for help to improve.",
+        "It’s too late to get better grades.",
+        "I’ll always be behind."
+    ],
+    "You’ll never stay organized.": [
+        "I can start with one small habit at a time.",
+        "I’ll always be messy.",
+        "Organization just isn’t for me."
+    ],
+    "You’ll never wake up on time.": [
+        "I can improve by setting small goals.",
+        "I’ll always oversleep.",
+        "There’s no use trying."
+    ],
+    "You can’t learn a new language.": [
+        "I can learn with practice every day.",
+        "I’ll always struggle.",
+        "It’s too hard for me."
+    ],
+    "You’ll never be good at art.": [
+        "Art takes time and effort to improve.",
+        "I’ll always be bad at drawing.",
+        "Art is for talented people, not me."
+    ],
+    "You can’t join the sports team.": [
+        "If I practice, I can get better and try again.",
+        "I’m not good enough for the team.",
+        "It’s not worth trying out."
+    ],
+    "You’ll never be a good leader.": [
+        "I can develop leadership skills with practice.",
+        "I’ll always struggle with leadership.",
+        "It’s not my thing."
+    ],
+    "You’ll never keep your promises.": [
+        "I can work on keeping my word.",
+        "I’ll always forget.",
+        "Promises are hard to keep."
+    ],
+    "You’ll never learn to cook.": [
+        "I can get better by trying new recipes.",
+        "I’ll always mess up in the kitchen.",
+        "Cooking is too complicated."
+    ],
+    "You’ll never remember everything for the test.": [
+        "I’ll focus on what I can learn.",
+        "I can’t remember anything.",
+        "It’s impossible to study everything."
+    ],
+    "You’ll never be a good friend.": [
+        "I can be kind and supportive.",
+        "I’ll never understand others.",
+        "Friendship isn’t my thing."
+    ],
+    "You’ll never be good at building things.": [
+        "I’ll learn by building small things first.",
+        "I’ll always mess things up.",
+        "Building is too hard for me."
+    ],
+    "You’ll never finish this book.": [
+        "I’ll read a little every day.",
+        "I’ll never get through it.",
+        "It’s too boring to finish."
+    ],
+    "You’ll never improve your writing.": [
+        "Writing improves with practice.",
+        "I’ll always write poorly.",
+        "Good writing isn’t for me."
+    ],
+    "You’ll never succeed.": [
+        "I’ll keep trying until I get better.",
+        "Success isn’t for me.",
+        "I’ll always fail."
     ]
 }
+
