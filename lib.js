@@ -227,6 +227,13 @@ class image{
 		this.img.src=imageLocation;
 	}	
 
+	drawFragment(x,y,w,h,fx,fy,fw,fh, rot){
+		c.save();
+		c.translate(x+w/2, y+h/2);
+		c.rotate(rot);
+		c.drawImage(this.img, fx,fy,fw,fh,-w/2,-h/2,w,h);
+		c.restore();
+	}
 	drawImg(X,Y,W,H, alpha, dsdx=[0,0], dwdh=[0,0]){
 		c.globalAlpha = alpha;
 		c.drawImage(this.img, X,Y, W,H);
@@ -581,3 +588,12 @@ document.addEventListener('touchstart', handleTouchStart, {passive: false} );
 document.addEventListener('touchmove', handleTouchMove, {passive: false} );
 document.addEventListener('touchend', handleTouchEnd, {passive: false} );
 document.addEventListener('touchcancel', handleTouchCancel, {passive: false} );
+function get_entity_by_type(type){
+	out = []
+	for(e of entities){
+		if(e instanceof type){
+			out.push(e)
+		}
+	}
+	return out;
+}
