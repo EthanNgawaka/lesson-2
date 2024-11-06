@@ -33,7 +33,6 @@ class Confetti{
 		this.col = this.rand_col();
 		this.rad = random(3,12);
 		this.type = type;
-		this.img = new image("./assets/imgs/bg/torn_paper.png");
 	}
 	rand_col(){
 		let choices = [

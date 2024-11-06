@@ -5,6 +5,7 @@ function getTextWidth(text, fontSize, fontFamily) {
 
 class Round{
 	constructor(prompt, options){
+		this.toggle = true;
 		let h = windowH;
 		this.doubtRectFinal = [windowW*0.05, windowH*0.2, h*0.57143, h];
 		this.doubtRect = [...this.doubtRectFinal];
@@ -67,6 +68,7 @@ class Round{
 	}
 	shatter(){
 		if(!this.shattered){
+			sfx.hammer1.play();
 			let w = 768;
 			let h = 1344;
 			let shards = []; // shard = {pos:[x,y], rot:0, vel:[x,y], frect:[x,y,w,h]}
@@ -99,8 +101,11 @@ class Round{
 			console.log(timer)
 			score += 50;
 		}
+		sfx.pop.play()
+		conf_man.blast(100)
 	}
 	wrong(bttn){
+		sfx.fail.play()
 		shakeTimer = 0.5;
 		for(let btn of get_entity_by_type(Button)){
 			btn.disable = true;
@@ -201,6 +206,10 @@ class Round{
 			if(this.animation < 5){
 				this.lexs.drawImg(...this.lexsRect, 1);
 				this.lexsRect[1] = lerp(this.lexsRect[1], this.lexsRectFinalY, 0.1)
+				if(this.toggle){
+					sfx.woosh.play();
+					this.toggle = false;
+				}
 			}
 			this.yet.drawRotatedImg(...this.yetRect, 1, this.yetRectRot);
 		}

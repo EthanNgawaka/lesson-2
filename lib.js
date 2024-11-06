@@ -538,7 +538,7 @@ function showText(text, X, Y, Size, colour = "rgb(0, 0, 0)", bold = false, strok
 // audio shit
 let sfx = {
 	bg_music: new Howl({
-		src:["./assets/audio/bg_music.ogg"],
+		src:["./assets/audio/bg_music.mp3"],
 		autoplay:true,
 		loop:true,
 		volume:0.3,

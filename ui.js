@@ -11,17 +11,22 @@ class Button{
 		this.hovered = false;
 		this.pressed = true;
 		this.disable = false;
+		this.prevHover = false;
 	}
 
 	update(dt){
-		this.hovered = false;
-		if(AABBCollision(this.rect, [mouse.x, mouse.y, 0,0]) && !this.disable){
+		this.hovered = AABBCollision(this.rect, [mouse.x,mouse.y,0,0])&&!this.disable;
+		if(this.hovered){
+			if(!this.prevHover){
+				sfx.select.play();
+			}
 			if(mouse.button.left && !this.pressed){
 				this.onAction(this)
 				this.pressed = true;
+				sfx.click.play();
 			}
-			this.hovered = true;
 		}
+		this.prevHover = this.hovered;
 		this.pressed = mouse.button.left;
 	}
 
