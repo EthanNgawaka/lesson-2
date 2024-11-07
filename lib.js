@@ -543,14 +543,12 @@ let sfx = {
 		loop:true,
 		volume:0.3,
 	}),
-	select: new Howl({src:["./assets/audio/select.ogg"], volume:2}),
-	click: new Howl({src:["./assets/audio/click.ogg"], volume:0.5}),
-	confirmation: new Howl({src:["./assets/audio/confirmation.ogg"], volume:0.2}),
-	fail: new Howl({src:["./assets/audio/fail.ogg"], volume:0.2}),
-	pop: new Howl({src:["./assets/audio/pop.ogg"]}),
-	woosh: new Howl({src:["./assets/audio/woosh.ogg"], volume: 0.4}),
+	select: new Howl({src:["./assets/audio/select.mp3"], volume:2}),
+	click: new Howl({src:["./assets/audio/click.mp3"], volume:0.5}),
+	fail: new Howl({src:["./assets/audio/fail.mp3"], volume:0.2}),
+	pop: new Howl({src:["./assets/audio/pop.mp3"]}),
+	woosh: new Howl({src:["./assets/audio/woosh.mp3"], volume: 0.4}),
 	hammer1: new Howl({src:["./assets/audio/hammer.mp3"], volume: 0.5}),
-	hammer2: new Howl({src:["./assets/audio/hammer2.ogg"], volume: 1}),
 }
 
 //
@@ -588,7 +586,15 @@ document.addEventListener('touchstart', handleTouchStart, {passive: false} );
 document.addEventListener('touchmove', handleTouchMove, {passive: false} );
 document.addEventListener('touchend', handleTouchEnd, {passive: false} );
 document.addEventListener('touchcancel', handleTouchCancel, {passive: false} );
+
 function get_entity_by_type(type){
+	for(e of entities){
+		if(e instanceof type){
+			return e;
+		}
+	}
+}
+function get_entities_by_type(type){
 	out = []
 	for(e of entities){
 		if(e instanceof type){

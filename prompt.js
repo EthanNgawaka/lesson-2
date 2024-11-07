@@ -31,7 +31,7 @@ class Round{
 		let actualTxtW = getTextWidth(this.prompt, this.finalTextSize, "Arial");
 		let txtw = actualTxtW + windowW*0.1;
 		let txth = windowH*0.2;
-		this.textBubbleRectFinal = [windowW/2, windowH*0.12,txtw,txth];
+		this.textBubbleRectFinal = [windowW/2, windowH*0.15,txtw,txth];
 		this.textBubbleRect = [...this.textBubbleRectFinal];
 		this.textBubbleRect[2] = 0;
 		this.textBubbleRect[3] = 0;
@@ -72,7 +72,7 @@ class Round{
 			let w = 768;
 			let h = 1344;
 			let shards = []; // shard = {pos:[x,y], rot:0, vel:[x,y], frect:[x,y,w,h]}
-			let num = 15;
+			let num = 5;
 			let dw = w/num;
 			let dh = h/num;
 			let actualDw = this.doubtRect[2]/num;
@@ -92,8 +92,9 @@ class Round{
 		}
 	}
 	correct(bttn){
-		get_entity_by_type(Round)[0].animation = get_entity_by_type(Round)[0].animationMax;
-		for(let btn of get_entity_by_type(Button)){
+		let curr_round = get_entity_by_type(Round);
+		curr_round.animation = curr_round.animationMax;
+		for(let btn of get_entities_by_type(Button)){
 			btn.disable = true;
 		}
 		score += 100;
@@ -105,13 +106,14 @@ class Round{
 		conf_man.blast(100)
 	}
 	wrong(bttn){
+		let curr_round = get_entity_by_type(Round);
 		sfx.fail.play()
 		shakeTimer = 0.5;
-		for(let btn of get_entity_by_type(Button)){
+		for(let btn of get_entities_by_type(Button)){
 			btn.disable = true;
 		}
-		get_entity_by_type(Round)[0].prompt = "You'll never defeat me!";
-		get_entity_by_type(Round)[0].failed = true;
+		curr_round.prompt = "You'll never defeat me!";
+		curr_round.failed = true;
 		let b = windowH*0.2;
 		entities.push(new Button(
 			[windowW*0.7 - b/2,windowH*0.7 ,b,b],"./assets/imgs/ui/retry.png",
@@ -150,23 +152,24 @@ class Round{
 		let centerRect = [...this.textBubbleRect];
 		centerRect[0] -= centerRect[2]/2-Camera.position[0];
 		centerRect[1] -= centerRect[3]/2-Camera.position[1];
-		let f = 0.125*math.sin(this.failedTimer*Math.PI) + 1;
-		let f2 = 0.125*math.sin(this.failedTimer*Math.PI - Math.PI/3) + 1;
-		let f3 = 0.06*math.sin(this.failedTimer*Math.PI/2) + 1;
-		centerRect = enlargeRect(centerRect, f2, f2);
-		if(f != 1){
-			this.textSize = this.finalTextSize*f
-		}
-		this.textBubble.drawImg(...centerRect, 1);
+		let f = 1;
+		let f2 = 1;
+		let f3 = 1;
 		let s = 1
-		if(f != 1){
+		if(this.failed){
+			f = 0.125*math.sin(this.failedTimer*Math.PI) + 1;
+			f2 = 0.125*math.sin(this.failedTimer*Math.PI - Math.PI/3) + 1;
+			f3 = 0.06*math.sin(this.failedTimer*Math.PI/2) + 1;
+			centerRect = enlargeRect(centerRect, f2, f2);
+			this.textSize = this.finalTextSize*f
 			s = 0.125*math.sin(this.failedTimer*Math.PI/7) + 1.125;
 		}
+		this.textBubble.drawImg(...centerRect, 1);
 		if(!this.shattered){
 			this.doubtspire.drawImg(...enlargeRect(this.doubtRect,s,s), 1);
 		}
 		if(this.failedTimer < -3){
-			for(e of get_entity_by_type(Button)){
+			for(e of get_entities_by_type(Button)){
 				if(e.string == ""){
 					e.drawing_rect = enlargeRect(e.rect,f3,f3);
 					break;
@@ -187,7 +190,7 @@ class Round{
 		this.textSize = lerp(this.textSize, this.finalTextSize, 0.05);
 
 		if(this.animation > 0){
-			for(e of get_entity_by_type(Button)){
+			for(e of get_entities_by_type(Button)){
 				if(e.string == this.correct_option){
 					this.g = lerp(this.g,0.3+0.125*math.sin((this.animationMax-this.animation)*Math.PI) + 1, 0.1);
 					e.drawing_rect = enlargeRect(e.rect,this.g,this.g);
