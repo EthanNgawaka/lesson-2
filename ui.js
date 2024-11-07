@@ -15,7 +15,7 @@ class Button{
 	}
 
 	update(dt){
-		this.hovered = AABBCollision(this.rect, [mouse.x,mouse.y,0,0])&&!this.disable;
+		this.hovered = AABBCollision(this.rect, [mouse.x,mouse.y,40,40])&&!this.disable;
 		if(this.hovered){
 			if(!this.prevHover){
 				sfx.select.play();
